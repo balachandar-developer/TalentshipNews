@@ -1,12 +1,14 @@
-package com.baladev.talentshipnews
+package com.baladev.talentshipnews.articleslist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.baladev.model.Articles
+import com.baladev.talentshipnews.R
 import com.baladev.talentshipnews.databinding.LayoutArticlesItemBinding
+import com.bumptech.glide.Glide
 
-class ArticlesAdapter: RecyclerView.Adapter<ArticlesAdapter.ArticlesViewHolder>() {
+class ArticlesAdapter(val NewsClickListener: NewsClickListener): RecyclerView.Adapter<ArticlesAdapter.ArticlesViewHolder>() {
 
     var articles = mutableListOf<Articles>()
 
@@ -36,9 +38,19 @@ class ArticlesAdapter: RecyclerView.Adapter<ArticlesAdapter.ArticlesViewHolder>(
                 binding.tvTitle.text = item.title
                 binding.tvDate.text = item.publishedAt
                 binding.tvShortDescription.text = item.description
+                Glide.with(this)
+                    .load(item.urlToImage)
+                    .placeholder(R.drawable.ic_launcher_background)
+                    .into(binding.imgViewNews)
+
+                binding.root.setOnClickListener {
+                    NewsClickListener.onNewsTapped(item)
+                }
             }
         }
     }
+}
 
-
+interface NewsClickListener {
+    fun onNewsTapped(data: Articles)
 }

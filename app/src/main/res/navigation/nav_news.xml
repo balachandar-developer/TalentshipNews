@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_news"
+    app:startDestination="@id/articlesListFragment">
+    <fragment
+        android:id="@+id/articlesListFragment"
+        android:name="com.baladev.talentshipnews.articleslist.ArticlesListFragment"
+        android:label="ArticlesListFragment"
+        tools:layout="@layout/fragment_articles_list" >
+
+        <action android:id="@+id/actionListToDetails"
+            app:destination="@id/articlesDetailsFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/articlesDetailsFragment"
+        android:name="com.baladev.talentshipnews.articledetails.NewsDetailsFragment"
+        android:label="NewsDetailsFragment"
+        tools:layout="@layout/fragment_news_details" ><!--
+        <argument android:name="title"
+            app:argType="string"
+            app:nullable="true"/>
+
+        <argument android:name="date"
+            app:argType="string"
+            app:nullable="true"/>
+
+        <argument android:name="imgURL"
+            app:argType="string"
+            app:nullable="true"/>
+
+        <argument android:name="description"
+            app:argType="string"
+            app:nullable="true"/>-->
+
+
+    </fragment>
+
+
+</navigation>
