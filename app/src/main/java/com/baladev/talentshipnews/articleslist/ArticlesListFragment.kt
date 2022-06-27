@@ -8,6 +8,7 @@ import com.baladev.talentshipnews.base.fragments.BaseFragment
 import com.baladev.talentshipnews.databinding.FragmentArticlesListBinding
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import android.util.Log
+import android.widget.Toast
 import androidx.navigation.Navigation
 import com.baladev.model.Articles
 import com.baladev.model.NewsDetailsViewData
@@ -50,7 +51,7 @@ class ArticlesListFragment: BaseFragment<FragmentArticlesListBinding, ArticlesVi
         }
 
         observeLiveData(viewModel.errorMessage){
-            Log.d("bala", "Error on retrieving data: $it")
+            Toast.makeText(context, "Error on retrieving data: $it", Toast.LENGTH_SHORT).show()
         }
 
     }
@@ -68,10 +69,10 @@ class ArticlesListFragment: BaseFragment<FragmentArticlesListBinding, ArticlesVi
 
         navigateTo(ArticlesListFragmentDirections.actionListToDetails())
         viewModel.provider.newsDetailsViewData = NewsDetailsViewData(
-            data.title,
-            data.publishedAt,
-            data.urlToImage,
-            data.content
+            data.title ?: "Not available",
+            data.publishedAt ?: "Not available",
+            data.urlToImage?: "",
+            data.content ?: "Not available"
         )
 
     }

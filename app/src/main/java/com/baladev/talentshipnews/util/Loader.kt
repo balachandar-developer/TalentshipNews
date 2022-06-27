@@ -6,9 +6,6 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import com.baladev.talentshipnews.R
 
-/**
- * Created by Bharath Simha Gupta on 2019-11-18.
- */
 object Loader {
     private var dialog: Dialog? = null
     fun show(context: Context?) {

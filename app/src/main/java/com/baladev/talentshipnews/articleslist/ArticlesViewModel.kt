@@ -1,6 +1,5 @@
 package com.baladev.talentshipnews.articleslist
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.baladev.api.MyRepository
 import com.baladev.api.RetrofitService
@@ -17,6 +16,10 @@ class ArticlesViewModel(val provider: TempProvider): BaseViewModel<ArticlesNavig
     val articlesList = MutableLiveData<List<Articles>>()
 
     val errorMessage = MutableLiveData<String>()
+
+ /*   init {
+        getAllArticles()
+    }*/
     override suspend fun reloadData() {
         TODO("Not yet implemented")
     }

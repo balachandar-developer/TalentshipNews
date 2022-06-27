@@ -8,21 +8,6 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
 import com.baladev.talentshipnews.base.fragments.VMOwner
 
-/**
- * Basic class that provides usage for [ViewModel].
- *
- * ```
- *  class MyActivity : MBBaseViewModelActivity<MyActivityBinding, MyViewModel>() {
- *
- *      override fun getLayoutRes(): Int = R.layout.activity_my
- *
- *      override fun getModelId(): Int = BR.model
- *
- *      override fun createViewModel(): MyViewModel =
- *              ViewModelProviders.of(this).get(MyViewModel::class.java)
- *  ]
- * ```
- */
 abstract class BaseViewModelActivity<Binding : ViewDataBinding, Model : ViewModel> :
     AppCompatActivity(), VMOwner<Binding, Model> {
 

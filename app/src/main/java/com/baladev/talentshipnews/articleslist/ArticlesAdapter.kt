@@ -35,8 +35,8 @@ class ArticlesAdapter(val NewsClickListener: NewsClickListener): RecyclerView.Ad
     inner  class ArticlesViewHolder(val binding: LayoutArticlesItemBinding): RecyclerView.ViewHolder(binding.root){
         fun bindView(item: Articles){
             with(itemView){
-                binding.tvTitle.text = item.title
-                binding.tvDate.text = item.publishedAt
+                binding.tvTitle.text = item.title ?: "-"
+                binding.tvDate.text = item.publishedAt ?: "-"
                 binding.tvShortDescription.text = item.description
                 Glide.with(this)
                     .load(item.urlToImage)

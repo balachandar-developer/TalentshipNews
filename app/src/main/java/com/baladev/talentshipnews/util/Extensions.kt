@@ -1,6 +1,5 @@
 package com.baladev.talentshipnews.util
 
-import android.graphics.drawable.Drawable
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.fragment.app.Fragment
@@ -9,8 +8,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
-import com.bumptech.glide.request.target.Target
 
 
 suspend fun MutableLiveData<Boolean>.withLoading(
@@ -32,6 +29,6 @@ fun Fragment.navigateTo(direction: NavDirections) {
 @BindingAdapter("profileImage")
 fun loadImage(view: ImageView, imageUrl: String?) {
     Glide.with(view.getContext())
-        .load(imageUrl).apply(RequestOptions().circleCrop())
+        .load(imageUrl)
         .into(view)
 }
